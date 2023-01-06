@@ -53,7 +53,7 @@ Resources:
           echo "Jump Box is working" > index.html 
       InstanceType: !Ref InstanceType
       ImageId: !Ref AMIImage
-      #Update property below with keyname to connect via ssh
+      #Uncomment and update property below with keyname to connect via ssh
       #KeyName: 
       Tags: 
           - Key: Name 
@@ -121,7 +121,7 @@ Resources:
           cd /var/www/html
           echo "It works! Udagram, Udacity" > index.html 
       ImageId: !Ref AMIImage
-      # Uncomment and add keyName property to be able to connect via ssh
+      # Uncomment and update keyName property to be able to connect via ssh
       #KeyName:  
       SecurityGroups:
       - Ref: WebServerSecGroup
