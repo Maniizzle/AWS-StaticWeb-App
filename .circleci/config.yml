@@ -38,7 +38,7 @@ jobs:
       # Redirect MY_ENV_VAR into $BASH_ENV
       - run:
           name: "Setup custom environment variables"
-          command: echo "$OLA"
+          command: echo $OLA
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
