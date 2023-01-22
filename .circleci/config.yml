@@ -26,11 +26,11 @@ jobs:
       
     steps:
       - attach_workspace:
-          at: /tmp/myworkspace
+          at: myworkspace
 
       - run:
           name: "read text"
-          command: cat /tmp/myworkspace/output.txt
+          command: cat myworkspace/output.txt
           
   
         
