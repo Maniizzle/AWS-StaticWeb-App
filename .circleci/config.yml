@@ -13,12 +13,12 @@ jobs:
       - run: mkdir -p myworkspace
       - run:
           name: "Save text"
-          command: echo "saving my first text" > myworkspace/output.txt
+          command: echo "saving my first text" > myworkspace/output
           
       - persist_to_workspace:
           root: myworkspace
           paths:
-            - output.txt
+            - output
             
   print_output_file:
     docker:
@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: "read text"
-          command: cat /tmp/myworkspace/output.txt
+          command: cat /tmp/myworkspace/output
           
   
         
