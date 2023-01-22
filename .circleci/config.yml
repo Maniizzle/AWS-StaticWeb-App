@@ -26,7 +26,7 @@ jobs:
       
     steps:
       - attach_workspace:
-          at: /tmp
+          at: /tmp/myworkspace
 
       - run:
           name: "read text"
