@@ -14,11 +14,20 @@ jobs:
       - run:
           name: "Save text"
           command: echo "saving my first text" > myworkspace/output.txt
-          
+
+  save_second_output:
+    docker:
+      - image: circleci/node:13.8.0
+      
+    steps:
+      - run:
+          name: "Save second text"
+          command: echo "saving my second text" > ~/outputtwo.txt
+
       - persist_to_workspace:
-          root: myworkspace
+          root: ~/
           paths:
-            - output.txt
+            - outputtwo.txt
             
   print_output_file:
     docker:
@@ -32,6 +41,17 @@ jobs:
           name: "read text"
           command: cat myworkspace/output.txt
           
+  print_second_output_file:
+    docker:
+      - image: circleci/node:13.8.0
+      
+    steps:
+      - attach_workspace:
+          at: ~/
+
+      - run:
+          name: "read text"
+          command: cat ~/outputtwo.txt
   
         
   say-world:
@@ -65,5 +85,9 @@ workflows:
       - print_output_file:
           requires: 
             - save_hello_world_output
+      - save_second_output
+      - print_second_output_file:
+          requires:
+            - save_second_output
       - say-world
       - echo_environment
