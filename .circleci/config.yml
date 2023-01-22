@@ -14,6 +14,11 @@ jobs:
       - run:
           name: "Save text"
           command: echo "saving my first text" > myworkspace/output.txt
+ 
+      - persist_to_workspace:
+          root: myworkspace
+          paths:
+            - output.txt
 
   save_second_output:
     docker:
