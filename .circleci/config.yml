@@ -10,12 +10,13 @@ jobs:
       - image: circleci/node:13.8.0
       
     steps:
+      - run: mkdir -p myworkspace
       - run:
           name: "Save text"
-          command: echo "saving my first text" > output.txt
+          command: echo "saving my first text" > myworkspace/output.txt
           
       - persist_to_workspace:
-          root: tmp
+          root: myworkspace
           paths:
             - output.txt
             
@@ -29,7 +30,7 @@ jobs:
 
       - run:
           name: "read text"
-          command: cat /tmp/output.txt
+          command: cat /tmp/myworkspace/output.txt
           
   
         
