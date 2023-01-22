@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: "read text"
-          command: cat output.txt
+          command: cat /tmp/myworkspace/output.txt
           
   
         
