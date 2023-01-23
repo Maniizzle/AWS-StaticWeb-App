@@ -88,7 +88,18 @@ jobs:
       - run:
           name: "Say World"
           command: "echo world"
-          
+  when-job:
+    docker:
+      - image: circleci/node:13.8.0
+      
+      steps:
+        - run: |
+          echo testing
+          return 1;
+      
+        -run: 
+        command: echo failure step
+        when: on_fail
   echo_environment:
     docker: # use the Docker executor
       # CircleCI Node images available at: https://circleci.com/developer/images/image/cimg/node
