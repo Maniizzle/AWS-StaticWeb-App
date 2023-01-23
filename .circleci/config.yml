@@ -119,6 +119,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - use_reusable_command
+      - when-job
       - save_hello_world_output
       - print_output_file:
           requires: 
